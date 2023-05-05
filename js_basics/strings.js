@@ -10,7 +10,7 @@ console.log(message);
 message = `My name is ${name}, and my surname is ${surname}. I'm currently living in ${city}. ${(65-age)} years short for retirment.`
 
 // ternary operators
-let retirment = (65 - age > 0) ? (65 - age) + " years short for retirment." : "I am retired.";
+let retirment = (65 - age > 0) ? (65 - age) + " years short for retirment." : "I am retired."; // after the'?' and before the ':', it's if block. After thet ':', it's else block.
 message = `My name is ${name}, and my surname is ${surname}. I'm currently living in ${city}. ${retirment}`;
 
 console.log(message);
