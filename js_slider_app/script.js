@@ -28,9 +28,52 @@ var models = [
 
 var index = 0;
 var sliderCount = models.length;
-action(index);
+var interval;
+var settings = {
+  duration : '3000',
+  random : false, //it can be false tho!
+}
+
+init(settings);
 
 console.log(index);
+
+document.querySelectorAll('.fas').forEach(function(item){
+  item.addEventListener('mouseenter', function(){
+    clearInterval(interval);
+  })
+})
+
+document.querySelectorAll('.fas').forEach(function(item){
+  item.addEventListener('mouseleave', function(){
+    init(settings);
+  })
+})
+
+function init(settings) {
+
+  var previous;
+
+  interval = setInterval(function(){
+    if(settings.random){
+      //random index
+      do {
+        index = Math.floor(Math.random() * sliderCount);
+      } while(index == previous) 
+        previous = index;
+      
+    } else {
+      //increasing index
+      if(sliderCount == index) {
+        index = 0;
+      }
+      action(index);
+      console.log(index);
+      index++;
+    }
+    action(index);
+  },settings.duration)
+}
 
 function action(i){
 
